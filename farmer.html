@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Maharashtra Farmer Registry | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      height: 100vh;
+      width: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.vecteezy.com/system/resources/thumbnails/031/547/197/small_2x/a-panoramic-view-of-a-lush-green-farm-with-rows-of-crops-stretching-into-the-distance-showcasing-the-vastness-and-productivity-of-modern-agriculture-generative-ai-photo.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0056b3; 
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d32f2f;
+      text-decoration: underline;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .login-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .govt-header {
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 15px;
+    }
+
+    .govt-header img {
+      height: 60px;
+      width: auto;
+      margin-bottom: 10px;
+    }
+
+    .govt-header h2 {
+      margin: 5px 0 0 0;
+      color: #333;
+      font-size: 1.5rem;
+    }
+
+    .govt-header p {
+      margin: 0;
+      color: #666;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+    }
+
+    label {
+      font-weight: 500;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #0056b3;
+      box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+    }
+
+    .captcha-container {
+      background: #f1f5f9;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .captcha-visual {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    canvas {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: not-allowed;
+    }
+
+    .btn-refresh {
+      background: #607d8b;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    
+    .btn-refresh:hover { background: #455a64; }
+
+    .btn-primary {
+      background: #0056b3;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      background: #004494;
+    }
+
+    .message-box {
+      font-size: 0.9rem;
+      min-height: 20px;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .error { color: #d32f2f; }
+    .success { color: #2e7d32; }
+
+    footer {
+      background: rgba(0,0,0,0.8);
+      color: #ccc;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.85rem;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .login-card {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">
+      <img src="https://www.data.gov.in/_nuxt/img/logo-nic.bd517ce.png" height="40" alt="NIC Logo">
+    </div>
+    <div class="nav-links">
+      <a href="https://mhfr.agristack.gov.in/farmer-registry-mh/#/dashboard" target="_blank">Dashboard</a>
+      <a href="https://mhfr.agristack.gov.in/farmer-registry-mh/#/checkEnrolmentStatus" target="_blank">Enrollment Status</a>
+      <a href="#" target="_blank">CSC Login</a>
+      <a href="#" target="_blank">KCC Status</a>
+    </div>
+  </nav>
+
+  <div class="main-wrapper">
+    <div class="login-card">
+      
+      <div class="govt-header">
+        <img src="Agristack Farned-Id.jpeg" alt="Maharashtra Govt Logo">
+        <p>Government of Maharashtra</p>
+        <h2>Farmer Registry</h2>
+      </div>
+
+      <form id="loginForm">
+        <div>
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="Enter your username" />
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter your password" />
+        </div>
+
+        <div class="captcha-container">
+          <label style="margin-bottom: 5px;">Security Check</label>
+          <div class="captcha-visual">
+            <canvas id="captchaCanvas" width="150" height="50"></canvas>
+            <button type="button" class="btn-refresh" id="refreshBtn" title="Refresh Captcha">↻ Refresh</button>
+          </div>
+          <input id="captchaInput" type="text" placeholder="Type the code above" autocomplete="off" />
+        </div>
+
+        <div id="msg" class="message-box"></div>
+
+        <button type="submit" class="btn-primary">Secure Login</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Government of Maharashtra | Helpdesk: 020-25712712 | Designed for Pune District
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('captchaCanvas');
+    const ctx = canvas.getContext('2d');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const captchaInput = document.getElementById('captchaInput');
+    const msg = document.getElementById('msg');
+    const form = document.getElementById('loginForm');
+    
+    let currentCaptcha = "";
+
+    function generateCaptchaText(length = 6) {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; 
+      let str = '';
+      for (let i = 0; i < length; i++) {
+        str += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return str;
+    }
+
+    function drawCaptcha() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#f9fafb';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      currentCaptcha = generateCaptchaText();
+
+      for (let i = 0; i < 7; i++) {
+        ctx.strokeStyle = '#ccc';
+        ctx.beginPath();
+        ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+        ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+        ctx.stroke();
+      }
+
+      ctx.font = 'bold 24px Arial';
+      ctx.fillStyle = '#333';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(currentCaptcha, 25, canvas.height / 2);
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const userCaptcha = captchaInput.value.trim().toUpperCase();
+
+      msg.textContent = '';
+      msg.className = 'message-box';
+
+      if (!username) {
+        showError('Please enter your username.');
+        return;
+      }
+      if (!password) {
+        showError('Please enter your password.');
+        return;
+      }
+      if (password.length < 6) {
+        showError('Password must be at least 6 characters.');
+        return;
+      }
+      if (!userCaptcha) {
+        showError('Please enter the security code.');
+        return;
+      }
+      if (userCaptcha !== currentCaptcha) {
+        showError('Incorrect Captcha code. Please try again.');
+        drawCaptcha(); 
+        captchaInput.value = '';
+        return;
+      }
+
+      msg.textContent = 'Login Successful! Redirecting...';
+      msg.className = 'message-box success';
+      
+      setTimeout(() => {
+        alert("Redirecting to dashboard...");
+      }, 1000);
+    });
+
+    function showError(text) {
+      msg.textContent = text;
+      msg.className = 'message-box error';
+    }
+
+    refreshBtn.addEventListener('click', () => {
+      drawCaptcha();
+      captchaInput.value = '';
+      msg.textContent = '';
+      captchaInput.focus();
+    });
+
+    window.onload = drawCaptcha;
+
+  </script>
+</body>
+</html>

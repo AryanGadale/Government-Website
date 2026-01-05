@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aaple Sarkar | Government of Maharashtra</title>
+    <style>
+        /* CSS VARIABLES & RESET */
+        :root {
+            --primary-blue: #003366;
+            --accent-orange: #ff7f00;
+            --bg-gray: #f4f6f9;
+            --text-dark: #333;
+            --border-light: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: #fff;
+            border-bottom: 5px solid var(--accent-orange);
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box img {
+            height: 65px;
+        }
+
+        .title-group h1 {
+            color: var(--primary-blue);
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .title-group p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .lang-nav a {
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        /* Layout Wrapper */
+        .wrapper {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            gap: 25px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            flex: 1;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .sidebar-header {
+            background: var(--primary-blue);
+            color: #fff;
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #444;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .sidebar li a:hover {
+            background: #f9f9f9;
+            color: var(--accent-orange);
+            padding-left: 20px;
+        }
+
+        /* Main Login Content */
+        .login-content {
+            flex: 3;
+        }
+
+        .login-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .login-card h2 {
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-row input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .captcha-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .captcha-img {
+            background: #e9ecef;
+            padding: 10px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            user-select: none;
+            border: 1px dashed #666;
+        }
+
+        /* Buttons */
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn-blue { background: var(--primary-blue); color: #fff; }
+        .btn-orange { background: var(--accent-orange); color: #fff; }
+
+        .extra-links {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        .extra-links a {
+            color: #0056b3;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .extra-links a:hover { text-decoration: underline; }
+
+        /* VLE Login */
+        .g2g-login {
+            margin-top: 25px;
+            background: #eef2f7;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+
+        /* Mobile View */
+        @media (max-width: 850px) {
+            .wrapper { flex-direction: column; }
+            .sidebar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-box">
+                <img src="https://aaplesarkar.mahaonline.gov.in/Images/logo.png" alt="Aaple Sarkar Logo">
+                <div class="title-group">
+                    <h1>Aaple Sarkar</h1>
+                    <p>Maharashtra Right to Public Services Act</p>
+                </div>
+            </div>
+            <div class="lang-nav">
+                <a href="#">मराठी</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-header">MAIN MENU</div>
+            <ul>
+                <li><a href="https://aaplesarkar.mahaonline.gov.in/en">Home</a></li>
+                <li><a href="https://aaplesarkar.mahaonline.gov.in/en/About_Commission">About RTS Commission</a></li>
+                <li><a href="https://aaplesarkar.mahaonline.gov.in/en/Login/Certificate_Documents">Notified Services</a></li>
+                <li><a href="https://aaplesarkar.mahaonline.gov.in/en/CommonForm/Maitri_Acts">Ease of Doing Business</a></li>
+                <li><a href="https://aaplesarkar.mahaonline.gov.in/en/CommonForm/ServiceInformation">Service Information</a></li>
+                <li><a href="https://aaplesarkar.mahaonline.gov.in/en/CommonForm/ContactUs">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <section class="login-content">
+            <div class="login-card">
+                <h2>Citizen Login</h2>
+                <form action="#">
+                    <div class="form-row">
+                        <label for="username">User Name</label>
+                        <input type="text" id="username" placeholder="Enter User Name">
+                    </div>
+                    <div class="form-row">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter Password">
+                    </div>
+                    <div class="form-row">
+                        <label>Captcha</label>
+                        <div class="captcha-box">
+                            <input type="text" placeholder="Enter Code" style="flex:1;">
+                            <div class="captcha-img">M4H4R</div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-blue">Login</button>
+                        <a href="https://aaplesarkar.mahaonline.gov.in/en/Registration/Register" class="btn btn-orange">New User? Register Here</a>
+                    </div>
+
+                    <div class="extra-links">
+                        <a href="https://aaplesarkar.mahaonline.gov.in/en/Login/ForgotPassword?Length=5">Forgot User Name?</a>
+                        <a href="https://aaplesarkar.mahaonline.gov.in/en/Login/ForgotUserName?Length=5">Forgot Password?</a>
+                    </div>
+                </form>
+
+                <div class="g2g-login">
+                    <p style="font-size: 14px;"><strong>Authorized Operator Login:</strong></p>
+                    <a href="https://cscservices.mahaonline.gov.in/DashBoard/Login.aspx" style="color:var(--primary-blue); font-size:14px; font-weight:600; text-decoration:none;">Click here for VLE / G2G Login →</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container"></div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postal Services | District Pune, Government of Maharashtra | India</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #002e5b;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 4px solid #f99d1c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+        }
+
+        .emblem {
+            height: 70px;
+            margin-right: 20px;
+        }
+
+        .site-title h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: #002e5b;
+        }
+
+        .site-title p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Content Section */
+        main {
+            background: #fff;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        h2.section-title {
+            color: #002e5b;
+            border-bottom: 2px solid #f99d1c;
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+        }
+
+        /* Postal Card Styling */
+        .postal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .postal-card {
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .postal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #002e5b;
+        }
+
+        .office-name {
+            font-weight: 700;
+            color: #002e5b;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .office-address {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .office-contact {
+            font-size: 0.95rem;
+            color: #222;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { width: 92%; }
+            .header-main { flex-direction: column; text-align: center; }
+            .emblem { margin: 0 0 10px 0; }
+            .postal-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+     <div class="top-bar">
+        <div class="container flex">
+            <div><a href="https://maharashtra.gov.in/home/index">Government of Maharashtra</a></div>
+            <div>Digital India</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-main">
+            <img src="https://pune.gov.in/wp-content/themes/s3waas_theme/images/emblem-dark.png" alt="Emblem" class="emblem">
+            <div class="site-title">
+                <h1>District Pune</h1>
+                <p>Government of Maharashtra</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2 class="section-title">Postal Services</h2>
+            
+            <div class="postal-grid">
+                <div class="postal-card">
+                    <span class="office-name">General Post Office (GPO)</span>
+                    <p class="office-address">Sadhu Vaswani Chowk, Modi Colony, Pune - 411001</p>
+                    <p class="office-contact">Phone: 020-26125516</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container"></div>
+    </footer>
+
+</body>
+</html>
